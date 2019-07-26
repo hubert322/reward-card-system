@@ -1,2 +1,2 @@
 <?php
-    echo "LMAO";
+    include "/content/template.html";
