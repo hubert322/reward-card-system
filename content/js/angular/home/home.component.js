@@ -3,7 +3,7 @@
 
     angular.module("rewardCard")
         .component("home", {
-            templateUrl: "/content/js/angular/home/home.template.html",
+            templateUrl: "./content/js/angular/home/home.template.html",
             controller: "HomeController"
         })
         .controller("HomeController",
