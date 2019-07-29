@@ -1,0 +1,17 @@
+<div style="display:flex;
+            flex-direction: column;
+            align-items: center;"
+>
+  <label for="rewardCardAmount">Amount to generate:</label>
+  <input id="rewardCardAmount" type="text" ng-model="$ctrl.rewardCardAmount" autofocus focus-next-on-enter />
+  <label for="starAmount">Stars per card:</label>
+  <input id="starAmount" type="text" ng-model="$ctrl.starAmount"
+    ng-keyup="$ctrl.isEnterPressed () ? $ctrl.generate () : null" />
+  <button id="button" class="btn marginT" ng-click="$ctrl.generate ()">Generate</button>
+  <div ng-switch="$ctrl.messageStatus">
+    <p ng-switch-when="singular">1 reward card generated</p>
+    <p ng-switch-when="plural">{{$ctrl.rewardCardAmountText}} reward cards generated</p>
+    <p ng-switch-when="invalid">Invalid amount or stars</p>
+    <p ng-switch-when="max">Please enter a number less than 1000</p>
+  </div>
+</div>

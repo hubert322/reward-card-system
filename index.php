@@ -1,3 +1,3 @@
 <?php
-    require_once "./content/template.html";
+    require_once "./index.html";
     
