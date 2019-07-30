@@ -9,5 +9,5 @@ app.config (function($routeProvider) {
 
     .when("/generate", {
         template: "<generate></generate>"
-    });
+    })
 })
