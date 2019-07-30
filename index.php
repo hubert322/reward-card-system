@@ -2,4 +2,4 @@
 
 require_once "./index.html";
 
-echo "HELLO";
+echo "HELLO World";
