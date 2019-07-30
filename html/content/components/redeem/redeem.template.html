@@ -1,0 +1,31 @@
+<div class="rewardCardRedeemWrapper"
+     style="display:flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 60px;
+            color: white;"
+>
+    <div style="display:flex;
+                flex-direction: row;
+                justify-content: center"
+    >
+        <label>Code
+            <input type="text"
+                   ng-model="$ctrl.inputCode"
+                   ng-keyup="$ctrl.isEnterPressed () ? $ctrl.redeem () : null"
+            >
+        </label>
+        <button class="btn" ng-click="$ctrl.redeem ()">Redeem</button>
+    </div>
+    <div ng-switch="$ctrl.redeemStatus">
+        <p ng-switch-when="init">Type in your input code or scan your QR code!</p>
+        <div ng-switch-when="redeeming" class="loading_spinner" style="margin: 10px;"></div>
+        <p ng-switch-when="successful">You've earned {{$ctrl.starAmount}} stars!</p>
+        <p ng-switch-when="invalid">Invalid code.</p>
+        <p ng-switch-when="used">This code has been redeemed.</p>
+        <p ng-switch-when="empty">Please input a code.</p>
+    </div>
+    <button class="btn" ng-click="$ctrl.openCamera ()" ng-if="!$ctrl.cameraOn">Scan QR Code</button>
+    <qr-scanner ng-if="$ctrl.cameraOn" ng-init="$ctrl.cameraInit ()">
+    </qr-scanner>
+</div>

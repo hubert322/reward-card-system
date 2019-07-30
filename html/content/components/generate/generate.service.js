@@ -3,8 +3,8 @@
 
     angular.module ("rewardCard")
         .service ("generateService",
-        ["downloadFile",
-        function generateService (downloadFile) {
+        ["downloadFile", "$http",
+        function generateService (downloadFile, $http) {
             var service = this;
             var GENERATE_MAX = 1000;
 
@@ -17,6 +17,14 @@
                 }
 
                 var url = "/api/reward-cards?rewardCardAmount=" + rewardCardAmount + "&starAmount=" + starAmount;
+
+                $http.get(url)
+                    .then(response => {
+                        console.log (response);
+                    })
+                
+                return;
+
                 downloadFile (url);
 
                 return rewardCardAmount == 1 ? "singular" : "plural";
