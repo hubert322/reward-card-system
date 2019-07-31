@@ -6,7 +6,7 @@ namespace api;
 
 use Exception;
 
-class Router
+class RewardCardRouter
 {
     private $rewardCardApiController;
     public function __construct ()
@@ -37,6 +37,3 @@ class Router
 
     }
 }
-
-$router = new Router ();
-$router->request ($_SERVER["REQUEST_METHOD"]);
