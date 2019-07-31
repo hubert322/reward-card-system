@@ -10,11 +10,6 @@ while (!feof ($file))
         $_ENV[$key] = $value;
     }
 }
-
-foreach ($_ENV as $k => $v)
-{
-    echo $k . " => " . $v;
-    echo "<br />";
-}
+fclose ($file);
 
 require_once "./index.html";
