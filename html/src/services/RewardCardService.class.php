@@ -3,6 +3,8 @@ declare (strict_types=1);
 
 namespace services;
 
+use dataAccess\RewardCardDbGateway;
+
 class RewardCardService
 {
     //           hyphen, en dash, em dash, space, new line, carriage return
@@ -39,8 +41,8 @@ class RewardCardService
         $this->memberId = $memberId;
         $this->studentId = $studentId;
         $this->rewardCardDbGateway = new RewardCardDbGateway ($shardConfigId, $studentId);
-        $this->qrCodeService = new QrCodeService ();
-        $this->pdfService = new PdfService ($shardConfigId);
+        //$this->qrCodeService = new QrCodeService ();
+        //$this->pdfService = new PdfService ($shardConfigId);
     }
 
     public function generateRewardCardCode (): string
