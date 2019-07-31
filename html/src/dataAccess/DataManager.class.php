@@ -43,7 +43,7 @@ class DataManager
         $this->lastInsertedId = $this->conn->insert_id;
     }
 
-    public function fetch (): array
+    public function fetch (): ?array
     {
         return $this->result->fetch_assoc ();
     }
