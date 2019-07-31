@@ -23,7 +23,7 @@ if ($file)
         if ($line)
         {
             [0 => $key, 1 => $value] = explode (": ", $line);
-            $_ENV[$key] = $value;
+            $_ENV[$key] = str_replace ([" ", "\n", "\r"], "", $value);
         }
     }
     fclose ($file);
