@@ -1,5 +1,6 @@
 <?php
 
+// Setup Environment variables
 $file = @fopen ("./env.conf", "r");
 if ($file)
 {
@@ -15,10 +16,6 @@ if ($file)
     fclose ($file);
 }
 
-require_once "./src/dataAccess/DataManager.class.php";
-require_once "./src/dataAccess/RewardCardDbGateway.class.php";
-require_once "./src/services/QrCodeService.class.php";
-require_once "./src/services/RewardCardService.class.php";
-require_once "./src/services/SessionInfoCacheService.class.php";
-require_once "./src/api/RewardCardApiController.class.php";
 require_once "./index.html";
+
+session_start ();
