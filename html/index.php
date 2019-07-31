@@ -16,6 +16,8 @@ if ($file)
     fclose ($file);
 }
 
+session_start ();
+
 require_once "./index.html";
 
-session_start ();
+
