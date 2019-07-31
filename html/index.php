@@ -21,5 +21,4 @@ require_once "./src/services/QrCodeService.class.php";
 require_once "./src/services/RewardCardService.class.php";
 require_once "./src/services/SessionInfoCacheService.class.php";
 require_once "./src/api/RewardCardApiController.class.php";
-require_once "./src/api/Router.php";
 require_once "./index.html";
