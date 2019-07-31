@@ -4,7 +4,6 @@ declare (strict_types=1);
 namespace dataAccess;
 
 use Exception;
-use dataAccess\DataManager;
 use util\SQLUtil;
 
 class RewardCardDbGateway
