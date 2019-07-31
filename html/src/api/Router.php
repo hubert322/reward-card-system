@@ -2,6 +2,8 @@
 
 declare (strict_types=1);
 
+namespace api;
+
 class Router
 {
     public function __construct ()

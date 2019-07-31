@@ -1,3 +1,4 @@
 .vscode/*
 php*
-angular.min.js.map
+*.iml
+.idea/*
