@@ -4,6 +4,8 @@ declare (strict_types=1);
 
 namespace api;
 
+use Exception;
+
 class Router
 {
     private $rewardCardApiController;
@@ -14,17 +16,25 @@ class Router
 
     public function request (string $requestMethod): void
     {
-        switch ($requestMethod)
+        try
         {
-            case "GET":
-                $this->rewardCardApiController->generate ();
-                break;
-            case "PATCH":
-                $this->rewardCardApiController->redeem ();
-                break;
-            default:
-                break;
+            switch ($requestMethod)
+            {
+                case "GET":
+                    $this->rewardCardApiController->generate ();
+                    break;
+                case "PATCH":
+                    $this->rewardCardApiController->redeem ();
+                    break;
+                default:
+                    break;
+            }
         }
+        catch (Exception $e)
+        {
+            echo "Caught exception: " . $e->getMessage () . "\n";
+        }
+
     }
 }
 
