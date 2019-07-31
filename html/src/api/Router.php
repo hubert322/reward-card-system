@@ -6,30 +6,27 @@ namespace api;
 
 class Router
 {
+    private $rewardCardApiController;
     public function __construct ()
     {
-
+        $this->rewardCardApiController = new RewardCardApiController ();
     }
 
-    public function request (string $url)
+    public function request (string $requestMethod): void
     {
-        switch ($_SERVER["REQUEST_METHOD"])
+        switch ($requestMethod)
         {
             case "GET":
-                echo "Generate";
+                $this->rewardCardApiController->generate ();
                 break;
             case "PATCH":
-                echo "Redeem";
+                $this->rewardCardApiController->redeem ();
                 break;
             default:
-                foreach ($_SERVER as $k => $v)
-                {
-                    echo "$k => $v";
-                    echo "<br />";
-                }
+                break;
         }
     }
 }
 
 $router = new Router ();
-$router->request ($_SERVER["REQUEST_URI"]);
+$router->request ($_SERVER["REQUEST_METHOD"]);
