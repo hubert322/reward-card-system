@@ -12,6 +12,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/src/api/RewardCardApiController.class
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/api/RewardCardRouter.class.php";
 
 use api\RewardCardRouter;
+use Exception;
 
 // Setup Environment variables
 $file = @fopen ("./env.conf", "r");
@@ -29,5 +30,12 @@ if ($file)
     fclose ($file);
 }
 
-$router = new RewardCardRouter ();
-$router->request ($_SERVER["REQUEST_METHOD"]);
+try
+{
+    $router = new RewardCardRouter ();
+    $router->request ($_SERVER["REQUEST_METHOD"]);
+}
+catch (Exception $e)
+{
+    echo "Caught exception: " . $e->getMessage () . "\n";
+}
