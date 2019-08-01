@@ -1,4 +1,4 @@
 .vscode/*
-php*
+php.ini
 *.iml
 .idea/*
