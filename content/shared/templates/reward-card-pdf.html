@@ -29,14 +29,11 @@
   }
 </style>
 <body>
-<? for ($i = 0; $i * 6 < sizeof ($qrCodeSources); ++$i)
-{ ?>
+<? for ($i = 0; $i * 6 < sizeof ($qrCodeSources); ++$i) { ?>
   <div class="page">
-      <? for($j = 0; $j < 3 && $i + $j * 2 < sizeof ($qrCodeSources); ++$j)
-      { ?>
+      <? for($j = 0; $j < 3 && $i + $j * 2 < sizeof ($qrCodeSources); ++$j) { ?>
         <div class="row">
-            <? for ($k = 0; $k < 2 && $i * 6 + $j * 2 + $k < sizeof ($qrCodeSources); ++$k)
-            { ?>
+            <? for ($k = 0; $k < 2 && $i * 6 + $j * 2 + $k < sizeof ($qrCodeSources); ++$k) { ?>
               <div class="item">
                 <img src="data:image/png;base64,<?= $qrCodeSources[$i * 6 + $j * 2 + $k]['qrCodeSource'] ?>"
                      alt="<?= $qrCodeSources[$i * 6 + $j * 2 + $k]['formattedInputCode'] ?>"
@@ -49,10 +46,9 @@
         </div>
       <? } ?>
   </div>
-    <? if (($i + 1) * 6 < sizeof ($qrCodeSources))
-{ ?>
-  <div class="page-break"></div>
-<? } ?>
+  <? if (($i + 1) * 6 < sizeof ($qrCodeSources)) { ?>
+      <div class="page-break"></div>
+  <? } ?>
 <? } ?>
 </body>
 </html>
