@@ -15,6 +15,10 @@ class ComposerStaticInit69baa269c67f0d94bf50fc5494fba185
     );
 
     public static $prefixLengthsPsr4 = array (
+        'h' => 
+        array (
+            'h4cc\\WKHTMLToPDF\\' => 17,
+        ),
         'Z' => 
         array (
             'Zxing\\' => 6,
@@ -60,6 +64,10 @@ class ComposerStaticInit69baa269c67f0d94bf50fc5494fba185
     );
 
     public static $prefixDirsPsr4 = array (
+        'h4cc\\WKHTMLToPDF\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/h4cc/wkhtmltopdf-amd64',
+        ),
         'Zxing\\' => 
         array (
             0 => __DIR__ . '/..' . '/khanamiryan/qrcode-detector-decoder/lib',

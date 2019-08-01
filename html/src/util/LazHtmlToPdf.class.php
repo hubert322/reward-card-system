@@ -8,7 +8,7 @@ use Psr\Log\LoggerInterface;
 class LazHtmlToPdf extends Pdf {
 
     public function __construct(LoggerInterface $logger=null, array $options = []) {
-        parent::__construct($_ENV['wkhtmltopdf_script'], $options);
+        parent::__construct(dirname($_SERVER["DOCUMENT_ROOT"]) . "/vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64", $options);
         //$this->setTemporaryFolder($_ENV['temp_file_location']);
         if($logger) {
             $this->setLogger($logger);
