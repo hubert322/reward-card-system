@@ -45,7 +45,9 @@ class DataManager
 
     public function fetch (): ?array
     {
-        return $this->result->fetch_assoc ();
+        if ($this->result)
+            return $this->result->fetch_assoc ();
+        return null;
     }
 
     public function lastId (): int
