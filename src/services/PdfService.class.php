@@ -21,6 +21,7 @@ class PdfService
 
     public function generatePdf (string $html, string $filename)
     {
+        ob_start();
         $pdf = new LazHtmlToPdf ();
         $pdfOutput = $pdf->getOutputFromHtml ($html);
         $pdf->sendHttp ($pdfOutput, $filename, false, true);

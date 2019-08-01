@@ -3,8 +3,8 @@
 
     angular.module ("rewardCard")
         .service ("generateService",
-        ["downloadFile", "$http",
-        function generateService (downloadFile, $http) {
+        ["downloadFile",
+        function generateService (downloadFile) {
             var service = this;
             var GENERATE_MAX = 1000;
 
