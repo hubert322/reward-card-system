@@ -34,15 +34,15 @@ class RewardCardService
 
     public function __construct (?int $csUserId, ?int $shardConfigId, ?int $memberId, ?int $studentId)
     {
-        $this->pdfTemplateFilePath = $_ENV['ROOT_WWW_PATH'] . "/html/shared/content/qr-code-templates/reward-card-pdf.html";
+        $this->pdfTemplateFilePath = $_ENV["DOCUMENT_ROOT"] . "/content/shared/templates/reward-card-pdf.html";
 
         $this->csUserId = $csUserId;
         $this->shardConfigId = $shardConfigId;
         $this->memberId = $memberId;
         $this->studentId = $studentId;
         $this->rewardCardDbGateway = new RewardCardDbGateway ($shardConfigId, $studentId);
-        //$this->qrCodeService = new QrCodeService ();
-        //$this->pdfService = new PdfService ($shardConfigId);
+        $this->qrCodeService = new QrCodeService ();
+        $this->pdfService = new PdfService ($shardConfigId);
     }
 
     public function generateRewardCardCode (): string

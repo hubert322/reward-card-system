@@ -1,5 +1,6 @@
 {
     "require": {
-        "endroid/qr-code": "^3.6"
+        "endroid/qr-code": "^3.6",
+        "knplabs/knp-snappy": "^1.1"
     }
 }
