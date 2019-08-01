@@ -9,7 +9,7 @@ class LazHtmlToPdf extends Pdf {
 
     public function __construct(LoggerInterface $logger=null, array $options = []) {
         parent::__construct($_ENV['wkhtmltopdf_script'], $options);
-        $this->setTemporaryFolder($_ENV['temp_file_location']);
+        //$this->setTemporaryFolder($_ENV['temp_file_location']);
         if($logger) {
             $this->setLogger($logger);
         }
@@ -34,7 +34,7 @@ class LazHtmlToPdf extends Pdf {
         }
     }
 
-    public function createTemporaryPdf() {
-        return $this->createTemporaryFile(null, "pdf");
-    }
+//    public function createTemporaryPdf() {
+//        return $this->createTemporaryFile(null, "pdf");
+//    }
 }
