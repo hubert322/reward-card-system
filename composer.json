@@ -1,7 +1,7 @@
 {
     "require": {
-        "endroid/qr-code": "^3.6",
         "h4cc/wkhtmltopdf-amd64": "0.12.x",
-        "knplabs/knp-snappy": "^1.1"
+        "knplabs/knp-snappy": "^1.1",
+        "endroid/qr-code": "^3.6"
     }
 }
