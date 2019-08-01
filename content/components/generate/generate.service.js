@@ -18,14 +18,6 @@
 
                 var url = "/api/reward-cards?rewardCardAmount=" + rewardCardAmount + "&starAmount=" + starAmount;
 
-                $http.get(url)
-                    .then(response => {
-                        console.log (response);
-                    })
-                    .catch(error => {console.log (error)});
-                
-                return;
-
                 downloadFile (url);
 
                 return rewardCardAmount == 1 ? "singular" : "plural";
