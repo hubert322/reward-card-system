@@ -34,7 +34,7 @@ class RewardCardService
 
     public function __construct (?int $csUserId, ?int $shardConfigId, ?int $memberId, ?int $studentId)
     {
-        $this->pdfTemplateFilePath = $_ENV["DOCUMENT_ROOT"] . "/content/shared/templates/reward-card-pdf.html";
+        $this->pdfTemplateFilePath = $_SERVER["DOCUMENT_ROOT"] . "/content/shared/templates/reward-card-pdf.html";
 
         $this->csUserId = $csUserId;
         $this->shardConfigId = $shardConfigId;
