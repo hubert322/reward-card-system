@@ -5,6 +5,10 @@ namespace util;
 use Knp\Snappy\Pdf;
 use Psr\Log\LoggerInterface;
 
+require_once dirname($_SERVER["DOCUMENT_ROOT"]) . "/vendor/knplabs/knp-snappy/src/Knp/Snappy/GeneratorInterface.php";
+require_once dirname($_SERVER["DOCUMENT_ROOT"]) . "/vendor/knplabs/knp-snappy/src/Knp/Snappy/AbstractGenerator.php";
+require_once dirname($_SERVER["DOCUMENT_ROOT"]) . "/vendor/knplabs/knp-snappy/src/Knp/Snappy/Pdf.php";
+
 class LazHtmlToPdf extends Pdf {
 
     public function __construct(LoggerInterface $logger=null, array $options = []) {
