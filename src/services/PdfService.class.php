@@ -12,11 +12,13 @@ class PdfService
 
     }
 
-    public function getHtml (string $pdfTemplateFilePath, array $qrCodeSources)
+    public function getHtml (string $pdfTemplateFilePath, array $qrCodeSources): string
     {
         ob_start();
         include ($pdfTemplateFilePath);
-        return ob_get_clean();
+        $rawHtml = ob_get_contents ();
+        ob_end_clean ();
+        return $rawHtml;
     }
 
     public function generatePdf (string $html, string $filename)
