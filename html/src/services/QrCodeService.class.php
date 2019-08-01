@@ -5,7 +5,6 @@ namespace services;
 
 use Endroid\QrCode\ErrorCorrectionLevel;
 use Endroid\QrCode\QrCode;
-use LAZ\objects\library\LazHtmlToPdf;
 
 class QrCodeService
 {
@@ -13,7 +12,7 @@ class QrCodeService
 
     public function __construct()
     {
-        $this->logoPath = $_ENV["ROOT_WWW_PATH"] . '/html/kidsa-z/images/mobile/ios/appIcon/Icon-72@2x.png';
+        $this->logoPath = $_SERVER["DOCUMENT_ROOT"] . '/assets/images/learningaz_icon.png';
     }
 
     public function generateQrCode (string $inputCode): string

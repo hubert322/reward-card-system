@@ -1,4 +1,5 @@
 <?php
+declare (strict_types=1);
 
 namespace services;
 
@@ -6,7 +7,7 @@ use util\LazHtmlToPdf;
 
 class PdfService
 {
-    public function __construct(?int $shardConfigurationid)
+    public function __construct(?int $shardConfigurationId)
     {
 
     }
@@ -20,7 +21,7 @@ class PdfService
 
     public function generatePdf (string $html, string $filename)
     {
-        $pdf = new LazHtmlToPdf ($this->logger);
+        $pdf = new LazHtmlToPdf ();
         $pdfOutput = $pdf->getOutputFromHtml ($html);
         $pdf->sendHttp ($pdfOutput, $filename, false, true);
     }
