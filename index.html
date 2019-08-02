@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <script type="text/javascript" src="./assets/js/jquery-3.4.1.min.js"></script>
@@ -8,19 +8,24 @@
   <script type="text/javascript" src="./assets/js/lodash.min.js"></script>
   <script type="text/javascript" src="./content/reward-card.module.js"></script>
   <script type="text/javascript" src="./content/reward-card.routes.js"></script>
+  <script type="text/javascript" src="./content/components/navbar/navbar.component.js"></script>
   <script type="text/javascript" src="./content/components/home/home.component.js"></script>
   <script type="text/javascript" src="./content/components/generate/generate.component.js"></script>
   <script type="text/javascript" src="./content/components/generate/generate.service.js"></script>
   <script type="text/javascript" src="./content/shared/util/download-file.factory.js"></script>
   <script type="text/javascript" src="./content/shared/ui/badge-notification-manager.js"></script>
   <script type="text/javascript" src="./content/shared/ui/badge-notification.js"></script>
+<!--  <script type="text/javascript" src="./content/components/redeem/redeem.component.js"></script>-->
+<!--  <script type="text/javascript" src="./content/components/redeem/redeem.service.js"></script>-->
   <title>Reward Card System | LAZ</title>
 </head>
 
-<body>
-  <div ng-app="rewardCard">
-    <div ng-view></div>
-  </div>
+<body ng-app="rewardCard">
+  <header>
+    <navbar>
+    </navbar>
+  </header>
+  <div ng-view></div>
 </body>
 
 </html>
