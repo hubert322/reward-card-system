@@ -6,8 +6,10 @@ app.config (function($routeProvider) {
     .when("/", {
         template: "<home></home>"
     })
-
     .when("/generate", {
         template: "<generate></generate>"
     })
-})
+    .when("/redeem", {
+        template: "<redeem></redeem>"
+    });
+});

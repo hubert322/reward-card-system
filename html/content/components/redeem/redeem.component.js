@@ -1,15 +1,15 @@
 (function () {
     "use strict";
 
-    angular.module ("shared")
+    angular.module ("rewardCard")
         .component ("rewardCardRedeem", {
-            templateUrl: "/shared/js/angular/reward-card/reward-card-redeem.template.html",
-            controller: "RewardCardRedeemController"
+            templateUrl: "./content/components/redeem/redeem.template.html",
+            controller: "RedeemController"
         })
 
-        .controller ("RewardCardRedeemController",
-        ["rewardCardService", "qrScanner",
-        function RewardCardRedeemController (rewardCardService, qrScanner) {
+        .controller ("RedeemController",
+        ["redeemService", "qrScanner",
+        function RedeemController (redeemService, qrScanner) {
             var ctrl = this;
 
             ctrl.$onInit = function () {
