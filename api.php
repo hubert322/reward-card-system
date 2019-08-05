@@ -38,7 +38,8 @@ if ($file)
 try
 {
     $router = new RewardCardRouter ();
-    $router->request ($_SERVER["REQUEST_METHOD"]);
+    $content = $router->request ($_SERVER["REQUEST_METHOD"]);
+    echo $content;
 }
 catch (Exception $e)
 {
