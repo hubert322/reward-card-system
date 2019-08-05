@@ -10,6 +10,7 @@ use services\RewardCardService;
 class RewardCardApiController
 {
     private $rewardCardService;
+    private $resource;
 
     public function __construct ()
     {
@@ -18,11 +19,13 @@ class RewardCardApiController
         $memberId = (int) (SessionInfoCacheService::getMemberId ()) ?: null;
         $studentId = (int) (SessionInfoCacheService::getStudentId ()) ?: null;
         $this->rewardCardService = new RewardCardService ($csUserId, $shardConfigId, $memberId, $studentId);
+
+        $this->setResource ();
     }
 
-    public function generate ()
+    public function generate (): void
     {
-        $queryParams = $_GET;
+        $queryParams = $this->getQueryParams ();
         if ($queryParams["rewardCardAmount"] === null || $queryParams["starAmount"] === null)
         {
             return;
@@ -47,7 +50,7 @@ class RewardCardApiController
 
     public function redeem (): array
     {
-        $rewardCardCode = $_POST["inputCode"];
+        $rewardCardCode = $this->resource["inputCode"];
         $sanitizedRewardCardCode = $this->rewardCardService->sanitizeRewardCardCode ($rewardCardCode);
         ["redeemStatus" => $redeemStatus, "starAmount" => $starAmount] = $this->rewardCardService->getRedeemStatusAndStarAmount ($sanitizedRewardCardCode);
         if ($redeemStatus === "successful")
@@ -56,5 +59,17 @@ class RewardCardApiController
         }
 
         return ["redeemStatus" => $redeemStatus, "starAmount" => $starAmount];
+    }
+
+    // These two functions are created for demo purpose. The actual code is extremely involved with the router system,
+    // thus abstracted from this demo.
+    private function getQueryParams (): array
+    {
+        return $_GET;
+    }
+
+    private function setResource (): void
+    {
+        $this->resource = json_decode (file_get_contents ("php://input"), true);
     }
 }
