@@ -4,6 +4,7 @@ declare (strict_types=1);
 namespace services;
 
 use dataAccess\RewardCardDbGateway;
+use dataAccess\SharedStudentDbGateway;
 
 class RewardCardService
 {
@@ -28,9 +29,12 @@ class RewardCardService
     private $memberId;
     private $studentId;
 
-    private $rewardCardDbGateway;
     private $qrCodeService;
     private $pdfService;
+    private $messagesService;
+
+    private $rewardCardDbGateway;
+    private $sharedStudentDbGateway;
 
     public function __construct (?int $csUserId, ?int $shardConfigId, ?int $memberId, ?int $studentId)
     {
@@ -40,9 +44,16 @@ class RewardCardService
         $this->shardConfigId = $shardConfigId;
         $this->memberId = $memberId;
         $this->studentId = $studentId;
-        $this->rewardCardDbGateway = new RewardCardDbGateway ($shardConfigId, $studentId);
+
         $this->qrCodeService = new QrCodeService ();
         $this->pdfService = new PdfService ($shardConfigId);
+        if ($shardConfigId)
+        {
+            $this->messagesService = new MessagesService ($shardConfigId);
+        }
+
+        $this->rewardCardDbGateway = new RewardCardDbGateway ($shardConfigId, $studentId);
+        $this->sharedStudentDbGateway = new SharedStudentDbGateway ($this->shardConfigId);
     }
 
     public function generateRewardCardCode (): string
@@ -131,8 +142,7 @@ class RewardCardService
     {
         $studentIds = [$this->studentId];
         $message = ["text_message" => self::TEXT_MESSAGE, "bonus_stars" => $starAmount, "student_ids" => $studentIds, "has_audio" => false];
-        $messagesService = new MessagesService ($this->shardConfigId);
-        $messagesService->sendStudentMessage ($studentIds, $this->memberId, $message);
+        $this->messagesService->sendStudentMessage ($studentIds, $this->memberId, $message);
     }
 
     private function now (): string
