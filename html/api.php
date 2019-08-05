@@ -3,9 +3,11 @@
 session_start ();
 
 require_once dirname($_SERVER["DOCUMENT_ROOT"]) . "/vendor/autoload.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/src/dataAccess/SharedStudentDbGateway.class.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/dataAccess/DataManager.class.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/util/SQLUtil.class.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/dataAccess/RewardCardDbGateway.class.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/src/services/MessagesService.class.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/util/LazHtmlToPdf.class.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/services/PdfService.class.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/services/QrCodeService.class.php";

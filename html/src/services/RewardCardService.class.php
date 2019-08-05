@@ -53,7 +53,7 @@ class RewardCardService
         }
 
         $this->rewardCardDbGateway = new RewardCardDbGateway ($shardConfigId, $studentId);
-        $this->sharedStudentDbGateway = new SharedStudentDbGateway ($this->shardConfigId);
+        $this->sharedStudentDbGateway = new SharedStudentDbGateway ($shardConfigId);
     }
 
     public function generateRewardCardCode (): string
@@ -114,10 +114,9 @@ class RewardCardService
         $rewardCard = $this->rewardCardDbGateway->getRewardCard($sanitizedRewardCardCode);
         $starAmount = 0;
 
-        $sharedStudentDbGateway = new SharedStudentDbGateway ($this->shardConfigId);
         if (empty ($rewardCard) ||
             ($rewardCard["member_id"] !== null && (int) $rewardCard["member_id"] !== $this->memberId &&
-            !$sharedStudentDbGateway->isStudentShared ((int) $rewardCard["member_id"], $this->studentId)))
+            !$this->sharedStudentDbGateway->isStudentShared ((int) $rewardCard["member_id"], $this->studentId)))
         {
             $redeemStatus = self::REDEEM_STATUS_INVALID;
         }
