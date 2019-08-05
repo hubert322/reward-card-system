@@ -30,11 +30,9 @@
             };
 
             ctrl.redeem = function () {
-                console.log ("Read Input Code!");
                 ctrl.redeemStatus = "redeeming";
                 redeemService.redeem (ctrl.inputCode)
                     .then (function (data) {
-                        console.log (data);
                         ctrl.redeemStatus = data.redeemStatus;
                         ctrl.starAmount = data.starAmount;
                         ctrl.cameraOn = false;
@@ -53,15 +51,9 @@
             };
 
             function showSplash () {
-                try {
-                    console.log (window.BadgeNotification);
-                    var manager = new BadgeNotificationManager ();
-                    var notifier = new BadgeNotification ({"id": "badgeSplashContainer", "message": "Stars", "image": "/images/standard_materials/standard_star.svg"}, manager);
-                    notifier.show ();
-                }
-                catch (error) {
-                    console.log (error);
-                }
+                var manager = new BadgeNotificationManager ();
+                var notifier = new BadgeNotification ({"id": "badgeSplashContainer", "message": "Stars", "image": "/images/standard_materials/standard_star.svg"}, manager);
+                notifier.show ();
             }
         }]);
 } ());
