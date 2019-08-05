@@ -2,14 +2,14 @@
     "use strict";
 
     angular.module ("rewardCard")
-        .component ("rewardCardRedeem", {
+        .component ("redeem", {
             templateUrl: "./content/components/redeem/redeem.template.html",
             controller: "RedeemController"
         })
 
         .controller ("RedeemController",
-        ["redeemService", "qrScanner",
-        function RedeemController (redeemService, qrScanner) {
+        ["redeemService", "qrScannerService",
+        function RedeemController (redeemService, qrScannerService) {
             var ctrl = this;
 
             ctrl.$onInit = function () {
@@ -17,7 +17,7 @@
                 ctrl.redeemStatus = "init";
                 ctrl.starAmount = null;
                 ctrl.cameraOn = false;
-                qrScanner.subscribe (setInputCodeAndRedeem);
+                qrScannerService.subscribe (setInputCodeAndRedeem);
             };
 
             function setInputCodeAndRedeem (inputCode) {
@@ -32,7 +32,7 @@
             ctrl.redeem = function () {
                 console.log ("Read Input Code!");
                 ctrl.redeemStatus = "redeeming";
-                rewardCardService.redeem (ctrl.inputCode)
+                redeemService.redeem (ctrl.inputCode)
                     .then (function (data) {
                         console.log (data);
                         ctrl.redeemStatus = data.redeemStatus;
@@ -49,7 +49,7 @@
             };
 
             ctrl.cameraInit = function () {
-                qrScanner.setIsScanning (false);
+                qrScannerService.setIsScanning (false);
             };
 
             function showSplash () {
