@@ -8,9 +8,9 @@
     });
 
     app.controller('qrScannerController', qrScannerController);
-    qrScannerController.$inject = ['windowService', 'qrScannerService'];
+    qrScannerController.$inject = ['qrScannerService'];
 
-    function qrScannerController(windowService, qrScannerService)
+    function qrScannerController(qrScannerService)
     {
         var ctrl = this;
         ctrl.video = document.createElement("video");
