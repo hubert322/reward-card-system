@@ -12,18 +12,21 @@ class RewardCardRouter
         $this->rewardCardApiController = new RewardCardApiController ();
     }
 
-    public function request (string $requestMethod): void
+    public function request (string $requestMethod)
     {
+        $content = null;
         switch ($requestMethod)
         {
             case "GET":
                 $this->rewardCardApiController->generate ();
                 break;
             case "PATCH":
-                $this->rewardCardApiController->redeem ();
+                $content = $this->rewardCardApiController->redeem ();
                 break;
             default:
                 break;
         }
+        
+        return $content;
     }
 }
