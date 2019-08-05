@@ -19,7 +19,7 @@
                 ctrl.rewardCardAmountText = null;
             };
 
-            ctrl.isEnterPressed = function () {
+            ctrl.isEnterPressed = function (event) {
                 return event.keyCode === 13;
             };
 

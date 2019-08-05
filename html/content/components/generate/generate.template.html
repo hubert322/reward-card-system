@@ -6,7 +6,8 @@
   <input id="rewardCardAmount" type="text" ng-model="$ctrl.rewardCardAmount" autofocus focus-next-on-enter />
   <label for="starAmount">Stars per card:</label>
   <input id="starAmount" type="text" ng-model="$ctrl.starAmount"
-    ng-keyup="$ctrl.isEnterPressed () ? $ctrl.generate () : null" />
+         ng-keyup="$ctrl.isEnterPressed ($event) ? $ctrl.generate () : null"
+  />
   <button id="button" class="btn marginT" ng-click="$ctrl.generate ()">Generate</button>
   <div ng-switch="$ctrl.messageStatus">
     <p ng-switch-when="singular">1 reward card generated</p>
