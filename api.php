@@ -39,7 +39,7 @@ try
 {
     $router = new RewardCardRouter ();
     $content = $router->request ($_SERVER["REQUEST_METHOD"]);
-    echo $content;
+    echo json_encode ($content);
 }
 catch (Exception $e)
 {

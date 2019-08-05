@@ -26,7 +26,7 @@ class RewardCardRouter
             default:
                 break;
         }
-        
+
         return $content;
     }
 }
