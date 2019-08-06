@@ -1,15 +1,18 @@
-let app = angular.module("rewardCard", ["ngRoute"]);
+(function() {
+    "use strict";
 
-app.config (function($routeProvider) {
-    $routeProvider
-
-    .when("/", {
-        template: "<home></home>"
-    })
-    .when("/generate", {
-        template: "<generate></generate>"
-    })
-    .when("/redeem", {
-        template: "<redeem></redeem>"
-    });
-});
+    angular.module("rewardCard")
+        .config (function($routeProvider, $locationProvider) {
+            $routeProvider
+                .when("/", {
+                    template: "<home></home>"
+                })
+                .when("/generate", {
+                    template: "<generate></generate>"
+                })
+                .when("/redeem", {
+                    template: "<redeem></redeem>"
+                });
+            $locationProvider.html5Mode(true);
+        });
+})();
