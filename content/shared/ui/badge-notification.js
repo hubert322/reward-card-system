@@ -20,10 +20,10 @@
                             '<div class="badgeNotification_badgeWrapper">' +
                                 '<object type="image/svg+xml" data="<%= image %>" alt="<%= name %> Badge" class="badgeNotification_badge" />' +
                             '</div>' +
-                            '<img src="/images/student_portal/badgeEarnedText.svg" class="badgeNotification_badgeText"/>' +
+                            '<img src="./assets/images/badgeNotification/badgeEarnedText.svg" class="badgeNotification_badgeText"/>' +
 
                         '</div>' +
-                        '<button class="badgeNotification_next bookroomSlider_button">Next</button>' +
+                        '<button class="badgeNotification_next next_button">Next</button>' +
                     '</div>');
 
     var BadgeNotification = function(message, manager) {
