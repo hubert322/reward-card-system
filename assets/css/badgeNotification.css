@@ -39,6 +39,7 @@
     min-width: 175px;
     right: 0;
     left: 0;
+    top: 75%;
     margin: auto !important;
     width: 15%;
     height: 10%;
@@ -79,7 +80,7 @@
     animation: 	.8s 	.02s 	ease-in-out 	badgeNotification_genericBounceInAnim;
 }
 .badgeNotification_starBurst {
-    background: url("./images/badgeNotification/starburst.svg") center center no-repeat;
+    background: url("../images/badgeNotification/starburst.svg") center center no-repeat;
     height: 0;
     padding-bottom: 41%;
     position: absolute;
@@ -163,7 +164,7 @@
     }
 }
 .badgeNotification_whiteStar {
-    background: url("./images/badgeNotification/whiteStar.svg") center center no-repeat;
+    background: url("../images/badgeNotification/whiteStar.svg") center center no-repeat;
     transform-origin: 40% 55%;
     animation: 	.6s 		ease-in-out  	badgeNotification_whiteStarAnim	    forwards;
 }
@@ -180,7 +181,7 @@
     }
 }
 .badgeNotification_whiteStarLeft {
-    background: url("./images/badgeNotification/whiteStar.svg") center center no-repeat;
+    background: url("../images/badgeNotification/whiteStar.svg") center center no-repeat;
     transform-origin: 40% 55%;
     animation: 	.6s		ease-in-out  	badgeNotification_whiteStarLeftAnim		forwards;
 }
@@ -197,7 +198,7 @@
     }
 }
 .badgeNotification_pinkStar {
-    background: url("./images/badgeNotification/pinkStar.svg") center center no-repeat;
+    background: url("../images/badgeNotification/pinkStar.svg") center center no-repeat;
     transform-origin: 40.6% 47%;
     animation: 	.7s 			ease-in-out  	badgeNotification_pinkStarAnim		    forwards;
 }
@@ -214,7 +215,7 @@
     }
 }
 .badgeNotification_pinkStarLeft {
-    background: url("./images/badgeNotification/pinkStar.svg") center center no-repeat;
+    background: url("../images/badgeNotification/pinkStar.svg") center center no-repeat;
     transform-origin: 40.6% 47%;
     animation: 	.7s 		ease-in-out  	badgeNotification_pinkStarLeftAnim		forwards;
 }
@@ -231,7 +232,7 @@
     }
 }
 .badgeNotification_greenStar {
-    background: url("./images/badgeNotification/greenStar.svg") center center no-repeat;
+    background: url("../images/badgeNotification/greenStar.svg") center center no-repeat;
     transform-origin: 40% 55%;;
     animation: 	.5s		ease-in-out	badgeNotification_greenStarAnim		forwards;
 }
@@ -248,7 +249,7 @@
     }
 }
 .badgeNotification_greenStarLeft {
-    background: url("./images/badgeNotification/greenStar.svg") center center no-repeat;
+    background: url("../images/badgeNotification/greenStar.svg") center center no-repeat;
     transform-origin: 40% 55%;
     animation: 	.5s 			ease-in-out  badgeNotification_greenStarLeftAnim		forwards;
 }
@@ -265,7 +266,7 @@
     }
 }
 .badgeNotification_blueStar {
-    background: url("./images/badgeNotification/blueStar.svg") center center no-repeat;
+    background: url("../images/badgeNotification/blueStar.svg") center center no-repeat;
     transform-origin: 40% 55%;
     animation: 	.8s 				ease-in-out  	badgeNotification_blueStarAnim		forwards;
 }
@@ -282,7 +283,7 @@
     }
 }
 .badgeNotification_blueStarLeft {
-    background: url("./images/badgeNotification/blueStar.svg") center center no-repeat;
+    background: url("../images/badgeNotification/blueStar.svg") center center no-repeat;
     transform-origin: 40% 55%;
     animation: 	.8s 				ease-in-out  badgeNotification_blueStarLeftAnim		forwards;
 }
@@ -299,7 +300,7 @@
     }
 }
 .badgeNotification_purpleStar {
-    background: url("./images/badgeNotification/purpleStar.svg") center center no-repeat;
+    background: url("../images/badgeNotification/purpleStar.svg") center center no-repeat;
     transform-origin: 40% 55%;
     animation: 	.84s 				ease-in-out	badgeNotification_purpleStarAnim		forwards;
 }
@@ -316,7 +317,7 @@
     }
 }
 .badgeNotification_purpleStarLeft {
-    background: url("./images/badgeNotification/purpleStar.svg") center center no-repeat;
+    background: url("../images/badgeNotification/purpleStar.svg") center center no-repeat;
     transform-origin: 40% 55%;
     animation: 	.84s 			ease-in-out  	badgeNotification_purpleStarLeftAnim		forwards;
 }
@@ -369,6 +370,9 @@
     background: #DE006B;
     text-decoration: none;
     transition: all 100ms ease-out;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-family: chewy;
 }
 .next_button:hover {
     background: #fff;
