@@ -20,7 +20,7 @@
                 ctrl.message = {
                     id: "badgeSplashContainer",
                     message: "Stars",
-                    image: "./assets/images/standard_star.svg"
+                    image: "./assets/images/badgeNotification/standard_star.svg"
                 };
 
                 qrScannerService.subscribe (setInputCodeAndRedeem);
