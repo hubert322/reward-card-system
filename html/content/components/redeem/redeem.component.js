@@ -17,6 +17,12 @@
                 ctrl.redeemStatus = "init";
                 ctrl.starAmount = null;
                 ctrl.cameraOn = false;
+                ctrl.message = {
+                    id: "badgeSplashContainer",
+                    message: "Stars",
+                    image: "./assets/images/standard_star.svg"
+                };
+
                 qrScannerService.subscribe (setInputCodeAndRedeem);
             };
 
@@ -52,7 +58,7 @@
 
             function showSplash () {
                 var manager = new BadgeNotificationManager ();
-                var notifier = new BadgeNotification ({"id": "badgeSplashContainer", "message": "Stars", "image": "/images/standard_materials/standard_star.svg"}, manager);
+                var notifier = new BadgeNotification (ctrl.message, manager);
                 notifier.show ();
             }
         }]);

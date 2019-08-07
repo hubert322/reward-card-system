@@ -12,7 +12,7 @@ class QrCodeService
 
     public function __construct()
     {
-        $this->logoPath = $_SERVER["DOCUMENT_ROOT"] . '/assets/images/learningaz_icon.png';
+        $this->logoPath = $_SERVER["DOCUMENT_ROOT"] . '/assets/images/qrCode/learningaz_icon.png';
     }
 
     public function generateQrCode (string $inputCode): string
