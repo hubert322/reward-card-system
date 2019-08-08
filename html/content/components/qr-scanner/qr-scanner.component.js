@@ -10,24 +10,30 @@
     app.controller('qrScannerController', qrScannerController);
     qrScannerController.$inject = ['qrScannerService'];
 
-    function qrScannerController(qrScannerService)
-    {
+    function qrScannerController(qrScannerService) {
         var ctrl = this;
-        ctrl.video = document.createElement("video");
-        ctrl.canvasElement = document.getElementById("canvas");
-        ctrl.canvas = ctrl.canvasElement.getContext("2d");
-        ctrl.loadingMessage = document.getElementById("loadingMessage");
 
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
-            ctrl.video.srcObject = stream;
-            ctrl.video.setAttribute("playsinline", true);
-            ctrl.video.play();
-            requestAnimationFrame(ctrl.tick);
-        });
+        ctrl.$onInit = function()  {
+            ctrl.video = document.createElement("video");
+            ctrl.canvasElement = document.getElementById("canvas");
+            ctrl.canvas = ctrl.canvasElement.getContext("2d");
+            ctrl.loadingMessage = document.getElementById("loadingMessage");
 
-        ctrl.tick = function ()
-        {
-            ctrl.loadingMessage.innerText = "? Loading video...";
+            ctrl.start();
+        };
+
+        ctrl.start = function() {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+                .then(function(stream) {
+                    ctrl.video.srcObject = stream;
+                    ctrl.video.setAttribute("playsinline", true);
+                    ctrl.video.play();
+                    ctrl.request = requestAnimationFrame(ctrl.tick);
+                });
+        };
+
+        ctrl.tick = function() {
+            ctrl.loadingMessage.innerText = "Loading video...";
             if (ctrl.video.readyState === ctrl.video.HAVE_ENOUGH_DATA)
             {
                 ctrl.loadingMessage.hidden = true;
@@ -39,13 +45,23 @@
                 var code = jsQR(imageData.data, imageData.width, imageData.height, {
                     inversionAttempts: "dontInvert",
                 });
-                if (code && code.data !== "" && !qrScannerService.getIsScanning())
+                if (code && code.data !== "")
                 {
-                    qrScannerService.setIsScanning(true);
-                    qrScannerService.setString (code.data);
+                    qrScanner.setString(code.data);
+                    ctrl.cleanUp();
+                    return;
                 }
             }
-            requestAnimationFrame(ctrl.tick);
+            ctrl.request = requestAnimationFrame(ctrl.tick);
         };
+
+        ctrl.cleanUp = function() {
+            cancelAnimationFrame (ctrl.request);
+            ctrl.video.srcObject.getTracks ()[0].stop ();
+        };
+
+        ctrl.$onDestroy = function() {
+            ctrl.cleanUp();
+        }
     }
 })();

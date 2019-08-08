@@ -8,16 +8,6 @@
 
                 var listeners = [];
 
-                service.isScanning = false;
-
-                service.getIsScanning = function() {
-                    return service.isScanning;
-                };
-
-                service.setIsScanning = function(bool) {
-                    service.isScanning = bool;
-                };
-
                 service.setString = function(string) {
                     publish(string);
                 };
