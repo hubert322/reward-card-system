@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/badgeNotification.css" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./assets/images/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicons/favicon-16x16.png">
+
   <script type="text/javascript" src="./assets/js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="./assets/js/angular.min.js"></script>
   <script type="text/javascript" src="./assets/js/angular-route.min.js"></script>
   <script type="text/javascript" src="./assets/js/lodash.min.js"></script>
   <script type="text/javascript" src="./assets/js/jsQR.js"></script>
+  <script type="text/javascript" src="./assets/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript" src="./content/reward-card.module.js"></script>
   <script type="text/javascript" src="./content/reward-card.routes.js"></script>
   <script type="text/javascript" src="./content/components/navbar/navbar.component.js"></script>
@@ -22,6 +32,7 @@
   <script type="text/javascript" src="./content/components/redeem/redeem.service.js"></script>
   <script type="text/javascript" src="./content/components/qr-scanner/qr-scanner.component.js"></script>
   <script type="text/javascript" src="./content/components/qr-scanner/qr-scanner.service.js"></script>
+
   <title>Reward Card System | LAZ</title>
   <base href="/" />
 </head>
@@ -31,7 +42,8 @@
     <navbar>
     </navbar>
   </header>
-  <div ng-view></div>
+  <div ng-view>
+  </div>
 </body>
 
 </html>

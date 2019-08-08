@@ -24,7 +24,7 @@
         <p ng-switch-when="used">This code has been redeemed.</p>
         <p ng-switch-when="empty">Please input a code.</p>
     </div>
-    <button class="btn" ng-click="$ctrl.openCamera ()" ng-if="!$ctrl.cameraOn">Scan QR Code</button>
+    <button class="btn btn-primary mt-3" ng-click="$ctrl.openCamera ()" ng-if="!$ctrl.cameraOn">Scan QR Code</button>
     <qr-scanner ng-if="$ctrl.cameraOn" ng-init="$ctrl.cameraInit ()">
     </qr-scanner>
 </div>
