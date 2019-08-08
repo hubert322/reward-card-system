@@ -31,7 +31,7 @@
                 ctrl.redeem ();
             }
 
-            ctrl.isEnterPressed = function () {
+            ctrl.isEnterPressed = function (event) {
                 return event.keyCode === 13;
             };
 
@@ -52,8 +52,8 @@
                 ctrl.cameraOn = true;
             };
 
-            ctrl.cameraInit = function () {
-                qrScannerService.setIsScanning (false);
+            ctrl.turnOffCamera = function () {
+                ctrl.cameraOn = false;
             };
 
             function showSplash () {

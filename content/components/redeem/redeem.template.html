@@ -14,7 +14,7 @@
                    ng-keyup="$ctrl.isEnterPressed () ? $ctrl.redeem () : null"
             >
         </label>
-        <button class="btn" ng-click="$ctrl.redeem ()">Redeem</button>
+        <button class="btn" ng-click="$ctrl.redeem ($event)">Redeem</button>
     </div>
     <div ng-switch="$ctrl.redeemStatus">
         <p ng-switch-when="init">Type in your input code or scan your QR code!</p>
@@ -25,6 +25,10 @@
         <p ng-switch-when="empty">Please input a code.</p>
     </div>
     <button class="btn btn-primary mt-3" ng-click="$ctrl.openCamera ()" ng-if="!$ctrl.cameraOn">Scan QR Code</button>
-    <qr-scanner ng-if="$ctrl.cameraOn" ng-init="$ctrl.cameraInit ()">
-    </qr-scanner>
+    <div ng-if="$ctrl.cameraOn" style="display:flex; flex-direction: column; align-items: center;">
+      <button class="btn" ng-click="$ctrl.turnOffCamera ()" ng-if="$ctrl.cameraOn">Turn Off Camera</button>
+      <br />
+      <qr-scanner ng-if="$ctrl.cameraOn">
+      </qr-scanner>
+    </div>
 </div>
