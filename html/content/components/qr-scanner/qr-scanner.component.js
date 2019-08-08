@@ -29,6 +29,9 @@
                     ctrl.video.setAttribute("playsinline", true);
                     ctrl.video.play();
                     ctrl.request = requestAnimationFrame(ctrl.tick);
+                })
+                .catch(function(error) {
+                    console.log(error, "HELLO");
                 });
         };
 
@@ -57,7 +60,9 @@
 
         ctrl.cleanUp = function() {
             cancelAnimationFrame (ctrl.request);
-            ctrl.video.srcObject.getTracks ()[0].stop ();
+            if (ctrl.video.srcObject !== null) {
+                ctrl.video.srcObject.getTracks ()[0].stop ();
+            }
         };
 
         ctrl.$onDestroy = function() {
