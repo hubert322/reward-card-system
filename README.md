@@ -1,6 +1,6 @@
 The Reward Card System is the feature I developed for my 2019 summer internship at Learning A-Z.
 
-Here is the demo: https://laz.huberthung.me
+Here is the demo: https://laz.huberthung.me  
 Mobile Repo: https://github.com/hubert322/reward-card-system-mobile
 
 For this project, I:
