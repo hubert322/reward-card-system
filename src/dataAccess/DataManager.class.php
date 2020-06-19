@@ -12,6 +12,7 @@ class DataManager
     const DB_RK_ACTIVITY = "rk_activity";
 
     const LOC_MASTER = "master";
+    const DATABASE = "heroku_2898c1ca244b3dc";
 
     private $conn;
     private $result;
@@ -24,11 +25,15 @@ class DataManager
             throw new Exception ("Invalid parameters for DataManager");
         }
 
-        $this->conn = new mysqli ($_ENV["SERVER_NAME"], $_ENV["USERNAME"], $_ENV["PASSWORD"]);
+        $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+        $this->conn = new mysqli ($url["host"], $url["user"], $url["pass"]);
         if ($this->conn->connect_error)
         {
             die ("Connection failed: " . $this->conn->connect_error);
         }
+
+        // Migrating to heroku only allowed one datbase
+        $database = self::DATABASE;
         $this->conn->select_db ($database);
     }
 
