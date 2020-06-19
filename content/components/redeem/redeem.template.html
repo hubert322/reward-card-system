@@ -11,7 +11,7 @@
         <label>Code
             <input type="text"
                    ng-model="$ctrl.inputCode"
-                   ng-keyup="$ctrl.isEnterPressed () ? $ctrl.redeem () : null"
+                   ng-keyup="$ctrl.isEnterPressed ($event) ? $ctrl.redeem ($event) : null"
             >
         </label>
         <button class="btn" ng-click="$ctrl.redeem ($event)">Redeem</button>
