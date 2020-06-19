@@ -50,7 +50,7 @@
                 });
                 if (code && code.data !== "")
                 {
-                    qrScanner.setString(code.data);
+                    qrScannerService.setString(code.data);
                     ctrl.cleanUp();
                     return;
                 }
