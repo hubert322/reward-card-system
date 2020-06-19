@@ -1,1 +1,1 @@
-web: cd html
+web: vendor/bin/heroku-php-nginx

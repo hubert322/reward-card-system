@@ -20,20 +20,20 @@ use api\RewardCardRouter;
 use Exception;
 
 // Setup Environment variables
-$file = @fopen ("./env.conf", "r");
-if ($file)
-{
-    while (!feof ($file))
-    {
-        $line = fgets ($file);
-        if ($line)
-        {
-            [0 => $key, 1 => $value] = explode (": ", $line);
-            $_ENV[$key] = str_replace ([" ", "\n", "\r"], "", $value);
-        }
-    }
-    fclose ($file);
-}
+// $file = @fopen ("./env.conf", "r");
+// if ($file)
+// {
+//     while (!feof ($file))
+//     {
+//         $line = fgets ($file);
+//         if ($line)
+//         {
+//             [0 => $key, 1 => $value] = explode (": ", $line);
+//             $_ENV[$key] = str_replace ([" ", "\n", "\r"], "", $value);
+//         }
+//     }
+//     fclose ($file);
+// }
 
 try
 {
