@@ -1,8 +1,9 @@
 <?php
 
 header("Access-Control-Allow-Origin: https://laz.huberthung.me");
-header('Access-Control-Allow-Methods: *');
-header('Access-Control-Allow-Headers: *, Content-Disposition');
+header("Access-Control-Allow-Methods: *");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Expose-Headers: *");
 session_start ();
 
 require_once dirname($_SERVER["DOCUMENT_ROOT"]) . "/vendor/autoload.php";
