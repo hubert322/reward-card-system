@@ -15,7 +15,7 @@
                     }
 
                     var data = {inputCode: inputCode};
-                    return $http.patch("/api/reward-cards", data)
+                    return $http.patch(serverUrl + "/api/reward-cards", data)
                         .then (function (response) {
                             return response.data;
                         });

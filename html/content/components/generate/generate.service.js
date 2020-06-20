@@ -16,7 +16,7 @@
                     return "max"
                 }
 
-                var url = "/api/reward-cards?rewardCardAmount=" + rewardCardAmount + "&starAmount=" + starAmount;
+                var url = serverUrl + "/api/reward-cards?rewardCardAmount=" + rewardCardAmount + "&starAmount=" + starAmount;
 
                 downloadFile (url);
 
