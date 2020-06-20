@@ -49,6 +49,7 @@
                     var headers = response.headers();
                     var contentDispositionHeader = headers['content-disposition'];
                     var matches = contentDispositionHeader && contentDispositionHeader.match(/filename[^;=\n]*=(?:(['"])(.*)\1|([^;\n]*))/);
+                    console.log(matches);
                     var fileName = matches ? matches[2] || matches[3] : config.defaultFileName;
                     if(!fileName){
                         throw new Error("cannot download file without filename set");
