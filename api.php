@@ -1,6 +1,5 @@
 <?php
 
-header("Access-Control-Allow-Origin: *");
 session_start ();
 
 require_once dirname($_SERVER["DOCUMENT_ROOT"]) . "/vendor/autoload.php";
