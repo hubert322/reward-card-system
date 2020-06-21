@@ -10,8 +10,13 @@
                 align-items: stretch;
                 text-align: center;"
     >
-        <label>Code</label>
-        <input type="text" ng-model="$ctrl.inputCode" ng-keyup="$ctrl.isEnterPressed ($event) ? $ctrl.redeem ($event) : null">
+        <label style="display: flex;
+                      align-items: center;
+                      margin: 0"
+        >
+            Code
+        </label>
+        <input style="margin: 2px;" type="text" ng-model="$ctrl.inputCode" ng-keyup="$ctrl.isEnterPressed ($event) ? $ctrl.redeem ($event) : null">
         <button class="btn btn-primary" ng-click="$ctrl.redeem ($event)">Redeem</button>
     </div>
     <div ng-switch="$ctrl.redeemStatus">
