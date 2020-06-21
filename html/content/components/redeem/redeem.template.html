@@ -14,7 +14,7 @@
                    ng-keyup="$ctrl.isEnterPressed ($event) ? $ctrl.redeem ($event) : null"
             >
         </label>
-        <button class="btn" ng-click="$ctrl.redeem ($event)">Redeem</button>
+        <button class="btn btn-primary mt-3" ng-click="$ctrl.redeem ($event)">Redeem</button>
     </div>
     <div ng-switch="$ctrl.redeemStatus">
         <p ng-switch-when="init">Type in your input code or scan your QR code!</p>
